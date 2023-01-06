@@ -1,7 +1,7 @@
 import {Client , GatewayIntentBits , EmbedBuilder, AttachmentBuilder, time} from 'discord.js';
 import {config} from 'dotenv';
 
-config();git
+config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
@@ -13,11 +13,12 @@ client.on('ready', () => {
 client.on('guildMemberUpdate', (oldmember, newmember) =>
 {
     //Check if Holder role updates to ovols
-    if(!oldmember.roles.cache.has('1060559043204231188') && newmember.roles.cache.has('1060559043204231188'))
+    const ovolsHolderRoleID = "1043042371996229692"
+    if(!oldmember.roles.cache.has(ovolsHolderRoleID) && newmember.roles.cache.has(ovolsHolderRoleID))
     {
          //Find Holder Channel to post Update
          const holderUpdateChannel = client.channels.cache.find(channel => channel.name === 'welcome-holder')
-         console.log(oldmember)
+
          //welcome image
          const file = new AttachmentBuilder('./Welcome.jpg');
 
