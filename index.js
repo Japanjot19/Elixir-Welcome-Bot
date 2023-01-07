@@ -1,12 +1,12 @@
 import {Client , GatewayIntentBits , EmbedBuilder, AttachmentBuilder, time} from 'discord.js';
 import {config} from 'dotenv';
 
-console.log("Started.......")
 config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
 client.on('ready', () => {
+  console.log("Started.......")
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
