@@ -6,7 +6,7 @@ config();
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers] });
 
 client.on('ready', () => {
-  console.log("Started........")
+  console.log("Bot Started........")
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
