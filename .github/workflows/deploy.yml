@@ -9,7 +9,11 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+        
     steps:
       - name: executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
