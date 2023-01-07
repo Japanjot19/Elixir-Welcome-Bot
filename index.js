@@ -19,7 +19,7 @@ client.on('guildMemberUpdate', (oldmember, newmember) =>
     {
          //Find Holder Channel to post Update
          const holderUpdateChannel = client.channels.cache.find(channel => channel.name === 'welcome-holder')
-
+        
          //welcome image
          const file = new AttachmentBuilder('./Welcome.jpg');
 
@@ -32,7 +32,13 @@ client.on('guildMemberUpdate', (oldmember, newmember) =>
             .setImage('attachment://Welcome.jpg')
 
          //Send Update
-         holderUpdateChannel.send({ embeds: [embed] , files: [file] });
+         try{
+          holderUpdateChannel.send({ embeds: [embed] , files: [file] });
+         }
+         catch(e)
+         {
+          console.log(e)
+         }
 
          //Logging here about the new holder
          const timestamp = Date.now();
