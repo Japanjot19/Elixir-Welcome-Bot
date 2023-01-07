@@ -18,10 +18,11 @@ jobs:
           username: ${{ secrets.AWS_USER }}
           key: ${{ secrets.AWS_KEY }}
           script: |
-            echo "stop index.js"
-            pm2 stop index.js
             echo "Jump to app folder"
             cd /home/ubuntu/Elixir-Welcome-Bot
+            echo "stop index.js"
+            pm2 stop index.js
+            pm2 delete index.js
             echo "Update app from Git"
             git pull
             echo "Install app dependencies"
